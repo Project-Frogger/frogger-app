@@ -1,0 +1,82 @@
+.MuiPaper-root.MuiPaper-elevation2.MuiPaper-rounded {
+    max-width: 80vw;
+    width: 80vw;
+
+    margin: 2rem 0 0 10rem;
+    padding: 0.5rem;
+
+    border-radius: 2rem;
+    box-shadow: none;
+}
+
+.Component-horizontalScrollContainer-12 {
+    padding: 1rem;
+}
+
+.MuiTypography-root.MuiTypography-h6 {
+    font-family: Manrope-ExtraBold;
+}
+
+.MuiButtonBase-root.MuiTableSortLabel-root {
+    font-family: Manrope-Bold;
+    font-size: 1rem;
+}
+
+
+th.MuiTableCell-root:nth-child(2) {
+    width: calc(35% + 0px) !important;
+}
+
+th.MuiTableCell-root:nth-child(3) {
+    width: calc(20% + 0px) !important;
+}
+
+th.MuiTableCell-root:nth-child(4) {
+    width: calc(30% + 0px) !important;
+}
+
+th.MuiTableCell-root:nth-child(5) {
+    width: calc(15% + 0px) !important;
+}
+
+
+.MuiSelect-root.MuiSelect-select.MuiTablePagination-select.MuiSelect-selectMenu.MuiInputBase-input {
+    font-family: Manrope-Medium;
+}
+
+.MuiTypography-root.MuiTypography-caption {
+    font-family: Manrope-Medium;
+}
+
+
+.MuiPickersModal-dialog h4, .MuiPickersModal-dialog h6, .MuiPickersSlideTransition-transitionContainer.MuiPickersCalendarHeader-transitionContainer p, .MuiPickersCalendarHeader-daysHeader span, .MuiPickersSlideTransition-transitionContainer.MuiPickersCalendar-transitionContainer p, .MuiButton-label, .MuiInputBase-input {
+    font-family: Manrope-Medium !important;
+}
+
+.MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar.MuiPickersDatePickerRoot-toolbar.MuiToolbar-gutters {
+    background-color: var(--black);
+}
+
+.MuiPickersDay-daySelected {
+    background-color: var(--purple) !important;
+}
+
+.MuiPickersDay-current, .MuiButton-label {
+    color: var(--purple) !important;
+}
+
+.MuiCheckbox-colorSecondary.Mui-checked {
+    color: var(--purple) !important;
+}
+
+.MuiCheckbox-colorSecondary:hover {
+    background-color: var(--lightpurple) !important;
+}
+
+.MuiCheckbox-indeterminate {
+    color: var(--black) !important;
+}
+
+.MuiTableCell-root.MuiTableCell-footer.MuiTablePagination-root.Component-paginationRoot-1 {
+    border-bottom: none;
+}

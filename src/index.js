@@ -5,6 +5,7 @@ import App from './App';
 import { BrowserRouter } from "react-router-dom"
 
 import './index.css';
+import './Components/EventTable.css';
 
 import './fonts/Manrope-Bold.ttf';
 import './fonts/Manrope-ExtraBold.ttf';
@@ -14,14 +15,13 @@ import './fonts/Manrope-Medium.ttf';
 import './fonts/Manrope-Regular.ttf';
 import './fonts/Manrope-SemiBold.ttf';
 
-
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter >
-      <App />
+        <App />
     </BrowserRouter>
   </React.StrictMode>
 );

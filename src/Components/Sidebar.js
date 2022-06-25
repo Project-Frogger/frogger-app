@@ -222,7 +222,7 @@ const Sidebar = () => {
         <Section className="section-main">
           <Item 
             onClick={ () => {setProfileClick(false); setClick(false)} } 
-            activeClassName="active" to="/all"
+            className={(navData) => (navData.isActive ? "active" : 'none')} to="/"
           >
             <img className="icon icon-all" src={ iconAll } alt="Все записи" />
             <Text clicked={ click } >Все записи</Text>
@@ -230,7 +230,7 @@ const Sidebar = () => {
 
           <Item 
             onClick={ () => {setProfileClick(false); setClick(false)} } 
-            activeClassName="active" to="/published"
+            className={(navData) => (navData.isActive ? "active" : 'none')} to="/published"
           >
             <img className="icon icon-published" src={ iconPublished } alt="Опубликованные" />
             <Text clicked={ click } >Опубликованные</Text>
@@ -238,7 +238,7 @@ const Sidebar = () => {
 
           <Item 
             onClick={ () => {setProfileClick(false); setClick(false)} } 
-            activeClassName="active" to="/drafts"
+            className={(navData) => (navData.isActive ? "active" : 'none')} to="/drafts"
           >
             <img className="icon icon-draft" src={ iconDraft } alt="Черновики" />
             <Text clicked={ click } >Черновики</Text>
@@ -246,7 +246,7 @@ const Sidebar = () => {
 
           <Item 
             onClick={ () => {setProfileClick(false); setClick(false)} } 
-            activeClassName="active" to="/archive"
+            className={(navData) => (navData.isActive ? "active" : 'none')} to="/archive"
           >
             <img className="icon icon-archive" src={ iconArchive } alt="Архив" />
             <Text clicked={ click } >Архив</Text>
@@ -254,7 +254,7 @@ const Sidebar = () => {
 
           <Item 
             onClick={ () => {setProfileClick(false); setClick(false)} } 
-            activeClassName="active" to="/bin"
+            className={(navData) => (navData.isActive ? "active" : 'none')} to="/bin"
           >
             <img className="icon icon-bin" src={ iconBin } alt="Корзина" />
             <Text clicked={ click } >Корзина</Text>
@@ -264,7 +264,7 @@ const Sidebar = () => {
         <Section className="section-sub">
           <Item 
             onClick={ () => {setProfileClick(false); setClick(false)} } 
-            activeClassName="active" to="/new-card"
+            className={(navData) => (navData.isActive ? "active" : 'none')} to="/new-card"
           >
             <img className="icon icon-add" src={ iconAdd } alt="Добавить запись" />
             <Text clicked={ click } >Добавить запись</Text>
@@ -272,7 +272,7 @@ const Sidebar = () => {
 
           <Item 
             onClick={ () => {setProfileClick(false); setClick(false)} } 
-            activeClassName="active" to="/options"
+            className={(navData) => (navData.isActive ? "active" : 'none')} to="/options"
           >
             <img className="icon icon-settings" src={ iconSettings } alt="Настройки" />
             <Text clicked={ click } >Настройки</Text>

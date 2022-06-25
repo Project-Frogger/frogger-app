@@ -1,11 +1,12 @@
 import MotionHoc from "./MotionHoc";
+import EventTable from "../Components/EventTable";
 
 
 const ListAllComponent = () => {
   return (
-    <h1>
-      ListAll bitch
-    </h1>
+    <>
+      <EventTable />
+    </>
   )
 };
 
