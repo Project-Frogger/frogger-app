@@ -1,65 +1,23 @@
 import MotionHoc from "./MotionHoc";
 import EventTable from "../Components/EventTable";
-
+import { useParams } from "react-router-dom";
 
 const ListAllComponent = () => {
+  const title = {
+    'all': 'Все записи',
+    'published': 'Опубликованные',
+    'drafts': 'Черновики',
+    'archive': 'Архив',
+    'bin': 'Корзина',
+  }
+  const { id } = useParams();
   return (
     <>
-      <EventTable />
+      <EventTable name={title[id]} id={id}/>
     </>
   )
 };
 
 const ListAll = MotionHoc(ListAllComponent);
 
-/**************************************************************************************************/ 
-
-const ListPublishedComponent = () => {
-  return (
-    <h1>
-      ListPublished bitch
-    </h1>
-  )
-};
-
-const ListPublished = MotionHoc(ListPublishedComponent);
-
-/**************************************************************************************************/ 
-
-const ListDraftsComponent = () => {
-  return (
-    <h1>
-      ListDrafts bitch
-    </h1>
-  )
-};
-
-const ListDrafts = MotionHoc(ListDraftsComponent);
-
-/**************************************************************************************************/
-
-const ListArchiveComponent = () => {
-  return (
-    <h1>
-      ListArchive bitch
-    </h1>
-  )
-};
-
-const ListArchive = MotionHoc(ListArchiveComponent);
-
-/**************************************************************************************************/
-
-const ListBinComponent = () => {
-  return (
-    <h1>
-      ListBin bitch
-    </h1>
-  )
-};
-
-const ListBin = MotionHoc(ListBinComponent);
-
-/**************************************************************************************************/
-
-export { ListAll, ListArchive, ListDrafts, ListPublished, ListBin };
+export { ListAll };

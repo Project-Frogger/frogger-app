@@ -5,11 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import Sidebar from './Components/Sidebar';
 
 import { 
-  ListAll, 
-  ListArchive, 
-  ListDrafts, 
-  ListPublished, 
-  ListBin 
+  ListAll
 } from './Pages/List';
 import NewCard from './Pages/NewCard';
 import Options from './Pages/Options';
@@ -34,11 +30,7 @@ function App() {
 
         <AnimatePresence exitBeforeEnter>
           <Routes location={ location } key={ location.pathname }>
-            <Route path="/"       element={ <ListAll /> } />
-            <Route path="/published" element={ <ListPublished /> } />
-            <Route path="/drafts"    element={ <ListDrafts /> } />
-            <Route path="/archive"   element={ <ListArchive /> } />
-            <Route path="/bin"       element={ <ListBin /> } />
+            <Route path="/:id"       element={ <ListAll /> } />
             <Route path="/new-card"  element={ <NewCard /> } />
             <Route path="/options"   element={ <Options /> } />
             <Route path="/profile"   element={ <Profile /> } />

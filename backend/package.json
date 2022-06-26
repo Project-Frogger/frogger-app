@@ -1,0 +1,32 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "api for frogger",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.bundle.js",
+    "build": "webpack",
+    "dev": "nodemon ./server.js localhost 3080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Project-Frogger/frogger-app.git"
+  },
+  "author": "Frogger team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Project-Frogger/frogger-app/issues"
+  },
+  "homepage": "https://github.com/Project-Frogger/frogger-app#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-myconnection": "^1.0.4",
+    "http-proxy-middleware": "^2.0.6",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18",
+    "webpack": "^5.73.0"
+  }
+}

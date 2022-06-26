@@ -1,4 +1,4 @@
-import React  from 'react';
+import React, {Component} from 'react';
 import MaterialTable from '@material-table/core';
 import toast, { Toaster } from 'react-hot-toast';
 import styled from 'styled-components';
@@ -8,216 +8,10 @@ import format from "date-fns/format";
 import DateFnsUtils from "@date-io/date-fns";
 
 import { 
-  MuiPickersUtilsProvider, DatePicker
+  MuiPickersUtilsProvider, KeyboardDatePicker
 }  from "@material-ui/pickers";
 
-
-/***************************TEST DATA****************************/
-
-const data = [
-  {
-    "id": 1,
-    "name": "Всероссийский конкурс «Идеи, преображающие города",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 2,
-    "name": "Росмолодёжь. Гранты",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 3,
-    "name": "Health Data Hack",
-    "date": "03/03/2022",
-    "category": "Хакатон",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 4,
-    "name": "Конкурс STArt Open call",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 5,
-    "name": "Дельфийские игры",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 6,
-    "name": "Всероссийский конкурс «Идеи, преображающие города",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 7,
-    "name": "Росмолодёжь. Гранты",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 8,
-    "name": "Health Data Hack",
-    "date": "03/03/2022",
-    "category": "Хакатон",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 9,
-    "name": "Конкурс STArt Open call",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 10,
-    "name": "Дельфийские игры",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 11,
-    "name": "Всероссийский конкурс «Идеи, преображающие города",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 12,
-    "name": "Росмолодёжь. Гранты",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 13,
-    "name": "Health Data Hack",
-    "date": "03/03/2022",
-    "category": "Хакатон",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 14,
-    "name": "Конкурс STArt Open call",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 15,
-    "name": "Дельфийские игры",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 16,
-    "name": "Всероссийский конкурс «Идеи, преображающие города",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 17,
-    "name": "Росмолодёжь. Гранты",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 18,
-    "name": "Health Data Hack",
-    "date": "03/03/2022",
-    "category": "Хакатон",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 19,
-    "name": "Конкурс STArt Open call",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 20,
-    "name": "Дельфийские игры",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 21,
-    "name": "Всероссийский конкурс «Идеи, преображающие города",
-    "date": "04/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 22,
-    "name": "Росмолодёжь. Гранты",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 23,
-    "name": "Health Data Hack",
-    "date": "03/03/2022",
-    "category": "Хакатон",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 24,
-    "name": "Конкурс STArt Open call",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-  {
-    "id": 25,
-    "name": "Дельфийские игры",
-    "date": "03/03/2022",
-    "category": "Конкурс проектов",
-    "place": "г. Москва",
-    "link": "https://fadm.gov.ru/news/63983",
-  },
-];
-
-/***************************TEST DATA END****************************/
+import { getCurrentEvents, getDeletedEvents } from '../services/EventService';
 
 
 class RuLocalizedUtils extends DateFnsUtils {
@@ -244,6 +38,7 @@ const ButtonCopy = styled.button`
   height: 1.8rem;
 
   border-radius: 0.3rem 0.1rem 0.1rem 0.3rem;
+  border: none;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
   cursor: pointer;
@@ -297,7 +92,7 @@ const copyLink = (link) => {
         },
       });
     }
-  )  
+  )
 };
 
 const LinkGroup = (props) => {
@@ -320,76 +115,186 @@ const LinkGroup = (props) => {
   )
 }
 
-function EventTable() {
-  return (
-    <MaterialTable
-      title="Все мероприятия"
-      columns={[
-        { 
-          title: 'id',
-          field: 'id',
-          hidden: true },
-        { 
-          title: 'Название',
-          field: 'name',
-          render: row => <div onClick={() => window.alert("TEST")}>{ row.name }</div>
-        },
-        { 
-          title: 'Дата',
-          field: 'date',
-          type: 'date',
-          render: rowData => new Date(rowData.date).toLocaleDateString(),
-          filterComponent: ({ columnDef, onFilterChanged }) => (
-            <MuiPickersUtilsProvider utils={ RuLocalizedUtils } locale={ ruLocale }>
-              <DatePicker
-                className='filter-date-picker'
-                clearLabel="Очистить"
-                format={"dd.MM.yyyy"}
-                cancelLabel={"Отмена"}
-                onChange={(date) => {
-                  onFilterChanged(columnDef.tableData.id, date);
-                }}
-                value={ columnDef.tableData.filterValue || null }
-                clearable
-              />
-            </MuiPickersUtilsProvider>
-          )
-        },
-        { 
-          title: 'Категория', 
-          field: 'category', 
-          lookup: { 
-            'Конкурс проектов': 'Конкурс проектов',
-            'Акселератор': 'Акселератор',
-            'Хакатон': 'Хакатон',
-            'Конференция': 'Конференция',
-            'Другое': 'Другое',
-          },
-        },
-        { 
-          title: 'Место', 
-          field: 'place', 
-        },
-        { 
-          title: '', 
-          field: 'link', 
-          filterComponent: () => (null), render: rowData => <LinkGroup link={ rowData.link }/>
-        },
-      ]}
+class EventTable extends Component {
 
-      data={ data }        
-      options={{
-        sorting: true,
-        selection: true,
-        filtering: true,
-        thirdSortClick: false,
-        maxBodyHeight: "70vh",
-        emptyRowsWhenPaging: false,
-        pageSize: 10,
-        pageSizeOptions: [5, 10, 20],
-      }}
-    />
-  )
+  state = {
+    event: {},
+    events: [],
+    numberOfEvents: 0
+  }
+
+  getCurrentEvents = () => {
+    getCurrentEvents()
+      .then(results => {
+        this.setState({events: results[0], numberOfEvents: results[0].length})
+        console.log(results[0])
+      });
+  }
+
+  getDeletedEvents = () => {
+    getDeletedEvents()
+      .then(results => {
+        this.setState({events: results[0], numberOfEvents: results[0].length})
+        console.log(results[0])
+      });
+  }
+
+  componentDidMount() {
+    if (this.props.id === 'bin') {
+      this.getDeletedEvents();
+    }
+    else this.getCurrentEvents();
+  }
+
+  filterEvents = () => {
+    return this.state.events.filter(
+      (element) => {
+        if (this.props.id !== 'bin') {
+          if (this.props.id === 'published') return element.is_published === 1;
+          if (this.props.id === 'drafts') return element.is_draft === 1;
+          if (this.props.id === 'archive') return element.archived_at !== null;
+        }
+        return true;
+      }
+    )
+  }
+
+  render() {
+    return (
+      <MaterialTable
+        title={this.props.name}
+        columns={[
+          { 
+            title: 'id',
+            field: 'id',
+            hidden: true 
+          },
+          { 
+            title: 'Название',
+            field: 'name',
+            render: row => <div onClick={() => window.alert("TEST")}>{ row.name }</div>
+          },
+          { 
+            title: 'date_from',
+            field: 'date_from',
+            hidden: true 
+          },
+          { 
+            title: 'Дата',
+            field: 'date_to',
+            type: 'date',
+            render: rowData => new Date(rowData.date_to).toLocaleDateString(),
+            filterComponent: ({ columnDef, onFilterChanged }) => (
+              <MuiPickersUtilsProvider utils={ RuLocalizedUtils } locale={ ruLocale }>
+                <KeyboardDatePicker
+                  className='filter-date-picker'
+                  clearLabel="Очистить"
+                  format={"dd.MM.yyyy"}
+                  cancelLabel={"Отмена"}
+                  onChange={(date) => {
+                    onFilterChanged(columnDef.tableData.id, date);
+                  }}
+                  value={ columnDef.tableData.filterValue || null }
+                  clearable
+                />
+              </MuiPickersUtilsProvider>
+            )
+          },
+          { 
+            title: 'Категория', 
+            field: 'category', 
+            lookup: { 
+              'Конкурсы проектов': 'Конкурсы проектов',
+              'Акселераторы': 'Акселераторы',
+              'Хакатоны': 'Хакатоны',
+              'Конференции': 'Конференции',
+              'Другое': 'Другое',
+              '': 'Без категории'
+            },
+          },
+          { 
+            title: 'Место', 
+            field: 'place', 
+          },
+          { 
+            title: '', 
+            field: 'link', 
+            filterComponent: () => (null), render: rowData => <LinkGroup link={ rowData.link }/>
+          },
+          { 
+            title: 'post_link',
+            field: 'post_link',
+            hidden: true 
+          },
+          { 
+            title: 'dc_nav_link',
+            field: 'dc_nav_link',
+            hidden: true 
+          },
+          { 
+            title: 'dc_bttn_link',
+            field: 'dc_bttn_link',
+            hidden: true 
+          },
+          { 
+            title: 'descr',
+            field: 'descr',
+            hidden: true 
+          },
+          { 
+            title: 'excerpt',
+            field: 'excerpt',
+            hidden: true 
+          },
+          { 
+            title: 'is_published',
+            field: 'is_published',
+            type: 'numeric',
+            hidden: true 
+          },
+          { 
+            title: 'is_draft',
+            field: 'is_draft',
+            type: 'numeric',
+            hidden: true 
+          },
+          { 
+            title: 'archived_at',
+            field: 'archived_at',
+            hidden: true 
+          },
+          { 
+            title: 'src_name',
+            field: 'src_name',
+            hidden: true 
+          },
+          { 
+            title: 'src_link',
+            field: 'src_link',
+            hidden: true 
+          },
+          { 
+            title: 'author_id',
+            field: 'author_id',
+            type: 'numeric',
+            hidden: true 
+          },
+        ]}
+
+        data={ this.filterEvents() }        
+        options={{
+          sorting: true,
+          selection: true,
+          filtering: true,
+          thirdSortClick: false,
+          maxBodyHeight: "60vh",
+          emptyRowsWhenPaging: false,
+          pageSize: 10,
+          pageSizeOptions: [5, 10, 20],
+        }}
+      />
+    )
+  }
 }
 
 export default EventTable;

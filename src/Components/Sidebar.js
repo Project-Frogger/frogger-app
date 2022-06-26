@@ -222,7 +222,7 @@ const Sidebar = () => {
         <Section className="section-main">
           <Item 
             onClick={ () => {setProfileClick(false); setClick(false)} } 
-            className={(navData) => (navData.isActive ? "active" : 'none')} to="/"
+            className={(navData) => (navData.isActive ? "active" : 'none')} to="/all"
           >
             <img className="icon icon-all" src={ iconAll } alt="Все записи" />
             <Text clicked={ click } >Все записи</Text>
