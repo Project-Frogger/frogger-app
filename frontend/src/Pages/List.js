@@ -2,6 +2,7 @@ import MotionHoc from "./MotionHoc";
 import EventTable from "../Components/EventTable";
 import { useParams } from "react-router-dom";
 
+
 const ListAllComponent = () => {
   const title = {
     'all': 'Все записи',
@@ -20,4 +21,4 @@ const ListAllComponent = () => {
 
 const ListAll = MotionHoc(ListAllComponent);
 
-export { ListAll };
+export default ListAll;

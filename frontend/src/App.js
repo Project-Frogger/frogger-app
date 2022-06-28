@@ -4,9 +4,7 @@ import { AnimatePresence } from "framer-motion";
 
 import Sidebar from './Components/Sidebar';
 
-import { 
-  ListAll
-} from './Pages/List';
+import ListAll from './Pages/List';
 import NewCard from './Pages/NewCard';
 import Options from './Pages/Options';
 import Profile from './Pages/Profile';

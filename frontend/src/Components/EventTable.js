@@ -3,26 +3,9 @@ import MaterialTable from '@material-table/core';
 import toast, { Toaster } from 'react-hot-toast';
 import styled from 'styled-components';
 
-import ruLocale from "date-fns/locale/ru";
-import format from "date-fns/format";
-import DateFnsUtils from "@date-io/date-fns";
-
-import { 
-  MuiPickersUtilsProvider, KeyboardDatePicker
-}  from "@material-ui/pickers";
-
 import { getCurrentEvents, getDeletedEvents } from '../services/EventService';
 
-
-class RuLocalizedUtils extends DateFnsUtils {
-  getCalendarHeaderText(date) {
-    return format(date, "LLLL", { locale: this.locale });
-  }
-
-  getDatePickerHeaderText(date) {
-    return format(date, "dd MMMM", { locale: this.locale });
-  }
-}
+import CustomDatePicker from './CustomDatePicker';
 
 
 const ButtonGroup = styled.div`
@@ -149,12 +132,18 @@ class EventTable extends Component {
   filterEvents = () => {
     return this.state.events.filter(
       (element) => {
-        if (this.props.id !== 'bin') {
-          if (this.props.id === 'published') return element.is_published === 1;
-          if (this.props.id === 'drafts') return element.is_draft === 1;
-          if (this.props.id === 'archive') return element.archived_at !== null;
+        switch(this.props.id) {
+          case 'bin':
+            return true;
+          case 'published':  // if (x === 'value2')
+            return element.is_published === 1;
+          case 'drafts':
+            return element.is_draft === 1;
+          case 'archive':
+            return element.archived_at !== null;
+          default:
+            return element.archived_at === null;
         }
-        return true;
       }
     )
   }
@@ -184,21 +173,7 @@ class EventTable extends Component {
             field: 'date_to',
             type: 'date',
             render: rowData => new Date(rowData.date_to).toLocaleDateString(),
-            filterComponent: ({ columnDef, onFilterChanged }) => (
-              <MuiPickersUtilsProvider utils={ RuLocalizedUtils } locale={ ruLocale }>
-                <KeyboardDatePicker
-                  className='filter-date-picker'
-                  clearLabel="Очистить"
-                  format={"dd.MM.yyyy"}
-                  cancelLabel={"Отмена"}
-                  onChange={(date) => {
-                    onFilterChanged(columnDef.tableData.id, date);
-                  }}
-                  value={ columnDef.tableData.filterValue || null }
-                  clearable
-                />
-              </MuiPickersUtilsProvider>
-            )
+            filterComponent: ({ columnDef, onFilterChanged }) => ( <CustomDatePicker columnDef={columnDef} onFilterChanged={onFilterChanged}></CustomDatePicker>)
           },
           { 
             title: 'Категория', 
@@ -208,8 +183,7 @@ class EventTable extends Component {
               'Акселераторы': 'Акселераторы',
               'Хакатоны': 'Хакатоны',
               'Конференции': 'Конференции',
-              'Другое': 'Другое',
-              '': 'Без категории'
+              'Другое': 'Другое'
             },
           },
           { 

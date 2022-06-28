@@ -13,15 +13,18 @@
     padding: 1rem;
 }
 
+
+/* Название таблицы */
 .MuiTypography-root.MuiTypography-h6 {
     font-family: Manrope-ExtraBold;
 }
 
+
+/* Заголовки столбцов */
 .MuiButtonBase-root.MuiTableSortLabel-root {
     font-family: Manrope-Bold;
     font-size: 1rem;
 }
-
 
 th.MuiTableCell-root:nth-child(2) {
     width: calc(35% + 0px) !important;
@@ -40,31 +43,23 @@ th.MuiTableCell-root:nth-child(5) {
 }
 
 
+/* Выбор количества рядов в футере */
 .MuiSelect-root.MuiSelect-select.MuiTablePagination-select.MuiSelect-selectMenu.MuiInputBase-input {
     font-family: Manrope-Medium;
 }
 
+/* Разбивка на страницы в футере */
 .MuiTypography-root.MuiTypography-caption {
     font-family: Manrope-Medium;
 }
 
-
-.MuiPickersModal-dialog h4, .MuiPickersModal-dialog h6, .MuiPickersSlideTransition-transitionContainer.MuiPickersCalendarHeader-transitionContainer p, .MuiPickersCalendarHeader-daysHeader span, .MuiPickersSlideTransition-transitionContainer.MuiPickersCalendar-transitionContainer p, .MuiButton-label, .MuiInputBase-input {
-    font-family: Manrope-Medium !important;
+/* Контейнер футера */
+.MuiTableCell-root.MuiTableCell-footer.MuiTablePagination-root.Component-paginationRoot-1 {
+    border-bottom: none;
 }
 
-.MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar.MuiPickersDatePickerRoot-toolbar.MuiToolbar-gutters {
-    background-color: var(--black);
-}
 
-.MuiPickersDay-daySelected {
-    background-color: var(--purple) !important;
-}
-
-.MuiPickersDay-current, .MuiButton-label {
-    color: var(--purple) !important;
-}
-
+/* Чекбоксы */
 .MuiCheckbox-colorSecondary.Mui-checked {
     color: var(--purple) !important;
 }
@@ -75,8 +70,4 @@ th.MuiTableCell-root:nth-child(5) {
 
 .MuiCheckbox-indeterminate {
     color: var(--black) !important;
-}
-
-.MuiTableCell-root.MuiTableCell-footer.MuiTablePagination-root.Component-paginationRoot-1 {
-    border-bottom: none;
 }

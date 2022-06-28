@@ -1,0 +1,29 @@
+.MuiPickersModal-dialog h4, 
+.MuiPickersModal-dialog h6, 
+.MuiPickersSlideTransition-transitionContainer.MuiPickersCalendarHeader-transitionContainer p, 
+.MuiPickersCalendarHeader-daysHeader span, 
+.MuiPickersSlideTransition-transitionContainer.MuiPickersCalendar-transitionContainer p, 
+.MuiButton-label, 
+.MuiInputBase-input,
+.MuiTypography-root.MuiPickersYear-root.MuiTypography-subtitle1 {
+    font-family: Manrope-Medium !important;
+}
+
+.MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar.MuiPickersDatePickerRoot-toolbar.MuiToolbar-gutters {
+    background-color: var(--black);
+}
+
+.MuiPickersDay-current, .MuiButton-label {
+    color: var(--purple) !important;
+}
+
+.MuiPickersDay-daySelected {
+    background-color: var(--purple) !important;
+    color: white !important;
+}
+
+
+.MuiTypography-root.MuiPickersYear-root.MuiPickersYear-yearSelected.MuiTypography-h5.MuiTypography-colorPrimary {
+    font-family: Manrope-Bold;
+    color: var(--purple);
+}

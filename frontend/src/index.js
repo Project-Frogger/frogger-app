@@ -5,7 +5,8 @@ import App from './App';
 import { BrowserRouter } from "react-router-dom"
 
 import './index.css';
-import './Components/EventTable.css';
+import './Components/Style/EventTable.css';
+import './Components/Style/CustomDatePicker.css';
 
 import './fonts/Manrope-Bold.ttf';
 import './fonts/Manrope-ExtraBold.ttf';
